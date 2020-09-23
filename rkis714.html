@@ -1,0 +1,75 @@
+<!--Created by 
+    CS335 A5
+    Reeshan Kishore
+    AUID: 888813312
+    14/09/20 
+-->
+<!doctype html>
+<head>
+    <meta content="width=device-width, initial-scale=1.0" charset="utf-8">
+    <title>NZ Covid Dashboard</title>
+    <link rel="stylesheet" href="rkis714.css"/>
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/f/f1/Flag_of_New_Zealand_%283-2%29.svg" type="image/png">
+</head>
+<body>
+
+<div id="element"> 
+    <div id="title">
+        <h1 id="data">New Zealand COVID-19 Cases</h1>
+        <!--Image sourced from wikimedia commons, creative commons licensed -->
+        <img id="flag" alt="NZ flag" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Flag_of_New_Zealand_%283-2%29.svg"/>
+        <br><i id="flagSource">Creative Commons Licenced, Source: Wikimedia Commons</i>
+        <h3><i  id="sourceRef">(Data Daily Updates Sourced from: Ministry of Health)</i></h3>
+        <h4 id="todayDate"></h4>
+    </div>
+    <!--start of SVG tags fixed order-->
+    <div>
+        <svg xmlns="http://www.w3.org/2000/svg" id="stats">
+
+            
+
+            <g id="totalCases">
+                
+            </g>
+
+            <g id="totalRecoveries">
+
+            </g>
+
+            <g id="totalDeaths">
+
+            </g>
+        </svg>
+    </div>
+    <div id="loader" class="loading"></div>
+    <div>
+        <button class="graphBtn" id="dGraph" onclick="getGraph('Daydeath')">Deaths per Day</button>
+        <button class="graphBtn" id="cGraph" onclick="getGraph('Daycases')">Cases per Day</button>
+        <button class="graphBtn" id="pGraph" onclick="getGraph('Pie')">State of Cases</button>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" id="graph">
+            <g id="graphFrame">
+
+            </g>
+
+            <g id="dailyDeaths">
+            
+            </g>
+
+            <g id="dailyCases">
+            
+            </g>
+
+            <g id="pieGraph">
+            
+            </g>
+    
+        </svg>
+    
+    </div>
+    
+</div>
+
+<script src="rkis714.js"></script>
+</body>
+</html>
