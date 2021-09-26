@@ -19,7 +19,7 @@
         <!--Image sourced from wikimedia commons, creative commons licensed -->
         <img id="flag" alt="NZ flag" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Flag_of_New_Zealand_%283-2%29.svg"/>
         <br><i id="flagSource">Creative Commons Licenced, Source: Wikimedia Commons</i>
-        <h3><i  id="sourceRef">(Data Daily Updates Sourced from: Ministry of Health)<p>&copy; Created by Reeshan Kishore</p></i></h3>
+        <h3><i  id="sourceRef">(Data Daily Updates Sourced from: disease.sh)<p>&copy; Created by Reeshan Kishore</p></i></h3>
         <h4 id="todayDate"></h4>
     </div>
     <!--start of SVG tags fixed order-->
@@ -43,9 +43,9 @@
     </div>
     <div id="loader" class="loading"></div>
     <div>
-        <button class="graphBtn" id="dGraph" onclick="getGraph('Daydeath')">Deaths per Day</button>
-        <button class="graphBtn" id="cGraph" onclick="getGraph('Daycases')">Cases per Day</button>
-        <button class="graphBtn" id="pGraph" onclick="getGraph('Pie')">State of Cases</button>
+        <button class="graphBtn" id="dGraph" onclick="getGraph('Daydeath')">Daily Deaths</button>
+        <button class="graphBtn" id="cGraph" onclick="getGraph('Daycases')">Daily Cases</button>
+        <button class="graphBtn" id="pGraph" onclick="getGraph('Pie')">Total Cases Breakdown</button>
         
         <svg xmlns="http://www.w3.org/2000/svg" id="graph">
             <g id="graphFrame">
