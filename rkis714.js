@@ -17,27 +17,49 @@ const uri = "https://disease.sh/v3/covid-19/historical/New%20Zealand?lastdays=al
 //Old API of Covid Statistics
 //const uri = "https://api.thevirustracker.com/free-api?countryTimeline=NZ";
 
-const fetchPromise =
-        fetch(uri,
-        {
-        headers : {
-            "Accept" : "application/json",
-        },
-    });
-const streamPromise =
-        fetchPromise.then((response) => response.json());
-        
-streamPromise.then(function(dataArray) {
-    
+let cases;
+let deaths;
+let recovered;
 
-    let cases = Object.entries(dataArray['timeline']['cases']);
-    let deaths = Object.entries(dataArray['timeline']['deaths']);
-    let recovered = Object.entries(dataArray['timeline']['recovered']);  
-    
+let cachedCases     = localStorage.getItem('cases');
+let cachedDeaths    = localStorage.getItem('deathscases');
+let cachedRecovered = localStorage.getItem('recovered');
 
+if (cachedCases !== null && cachedDeaths !== null && cachedRecovered !== null) {
+    cases       = JSON.parse(cachedCases);
+    deaths      = JSON.parse(cachedDeaths);
+    recovered   = JSON.parse(cachedRecovered);
+  
     getData(cases, deaths, recovered);
     drawGraphs(cases, deaths, recovered);
-});
+}
+else {
+    
+    const fetchPromise =
+            fetch(uri,
+            {
+            headers : {
+                "Accept" : "application/json",
+            },
+        });
+    const streamPromise =
+            fetchPromise.then((response) => response.json());
+            
+    streamPromise.then(function(dataArray) {
+        
+
+        cases       = Object.entries(dataArray['timeline']['cases']);
+        deaths      = Object.entries(dataArray['timeline']['deaths']);
+        recovered   = Object.entries(dataArray['timeline']['recovered']);  
+        
+        localStorage.setItem('cases', JSON.stringify(cases));
+        localStorage.setItem('deathscases', JSON.stringify(deaths));
+        localStorage.setItem('recovered', JSON.stringify(recovered));
+
+        getData(cases, deaths, recovered);
+        drawGraphs(cases, deaths, recovered);
+    });
+}
 
 
 
